@@ -12,10 +12,6 @@ class Courses extends Component {
         ]
     }
 
-    courseClickHandler(id){
-        this.props.history.push({pathname: '/'+id});
-    }
-
     render () {
         return (
             <div>
@@ -29,11 +25,12 @@ class Courses extends Component {
                                         key={course.id} 
                                         to={this.props.match.url+'/'+course.id+'/'+course.title}>
 
-                                    <article className="Course"  onClick={()=>this.courseClickHandler(course.id)}>{course.title}</article>
+                                    <article className="Course">{course.title}</article>
                                 </Link>);
                         } )
                     }
                 </section>
+                <hr/>
                 <Route 
                     path={this.props.match.url+'/:id/:title'} 
                     component={Course}/>
